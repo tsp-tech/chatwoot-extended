@@ -2,6 +2,7 @@
 import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
 import EmailTranscriptModal from './EmailTranscriptModal.vue';
+import TypebotAction from '../../buttons/TypebotAction.vue';
 import ResolveAction from '../../buttons/ResolveAction.vue';
 import {
   CMD_MUTE_CONVERSATION,
@@ -13,6 +14,7 @@ export default {
   components: {
     EmailTranscriptModal,
     ResolveAction,
+    TypebotAction,
   },
   data() {
     return {
@@ -72,6 +74,10 @@ export default {
       color-scheme="secondary"
       icon="share"
       @click="toggleEmailActionsModal"
+    />
+    <TypebotAction
+      :conversation-id="currentChat.id"
+      :status="currentChat.status"
     />
     <ResolveAction
       :conversation-id="currentChat.id"
